@@ -13,10 +13,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Repository
-public class JdbcOrderRepository implements OrderRepository {
+public class JdbcOrderRepository {
 
-    private SimpleJdbcInsert orderInserter;
+   /* private SimpleJdbcInsert orderInserter;
     private SimpleJdbcInsert orderTacoInserter;
     private ObjectMapper objectMapper;
 
@@ -55,5 +54,5 @@ public class JdbcOrderRepository implements OrderRepository {
         values.put("tacoOrder", orderId);
         values.put("taco", taco.getId());
         orderTacoInserter.execute(values);
-    }
+    }*/
 }

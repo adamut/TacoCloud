@@ -19,9 +19,8 @@ import java.util.Map;
 
 import cosmin.tacocloud.domain.Ingredient.Type;
 
-@Repository
-public class JdbcTacoRepository implements TacoRepository {
-
+public class JdbcTacoRepository{
+/*
     private JdbcTemplate jdbc;
     private Map<String, Ingredient> ingredientMap;
 
@@ -64,5 +63,5 @@ public class JdbcTacoRepository implements TacoRepository {
 
     private void saveIngredientToTaco(Ingredient ingredient, long tacoId) {
         jdbc.update("insert into Taco_Ingredients (taco, ingredient) values (?, ?)", tacoId, ingredient.getId());
-    }
+    }*/
 }
