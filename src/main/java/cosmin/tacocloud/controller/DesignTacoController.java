@@ -5,6 +5,7 @@ import cosmin.tacocloud.domain.Ingredient.Type;
 import cosmin.tacocloud.domain.Order;
 import cosmin.tacocloud.domain.Taco;
 import cosmin.tacocloud.repository.IngredientRepository;
+import cosmin.tacocloud.repository.JdbcTacoRepository;
 import cosmin.tacocloud.repository.TacoRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,9 @@ public class DesignTacoController {
 
     private final IngredientRepository ingredientRepository;
     private TacoRepository tacoRepository;
+
+    @Autowired
+    private JdbcTacoRepository jdbcTacoRepository;
 
     @Autowired
     public DesignTacoController(IngredientRepository ingredientRepository, TacoRepository tacoRepository) {
@@ -62,7 +66,7 @@ public class DesignTacoController {
         if (errors.hasErrors()) {
             return "design";
         }
-        Taco saved = tacoRepository.save(design);
+        Taco saved = jdbcTacoRepository.save(design);
         order.addDesign(saved);
         return "redirect:/orders/current";
     }

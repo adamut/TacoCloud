@@ -13,11 +13,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Repository
 public class JdbcOrderRepository {
 
-   /* private SimpleJdbcInsert orderInserter;
+    private SimpleJdbcInsert orderInserter;
     private SimpleJdbcInsert orderTacoInserter;
     private ObjectMapper objectMapper;
+
+    @Autowired
+    private OrderRepository orderRepository;
 
     @Autowired
     public JdbcOrderRepository(JdbcTemplate jdbc) {
@@ -29,9 +33,10 @@ public class JdbcOrderRepository {
         this.objectMapper = new ObjectMapper();
     }
 
-    @Override
+
     public Order save(Order order) {
         order.setPlacedAt(new Date());
+
         long orderId = saveOrderDetails(order);
         order.setId(orderId);
         List<Taco> tacos = order.getTacos();
@@ -54,5 +59,5 @@ public class JdbcOrderRepository {
         values.put("tacoOrder", orderId);
         values.put("taco", taco.getId());
         orderTacoInserter.execute(values);
-    }*/
+    }
 }

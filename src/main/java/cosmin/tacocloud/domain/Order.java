@@ -28,6 +28,9 @@ public class Order implements Serializable {
     @ManyToMany(targetEntity = Taco.class)
     private List<Taco> tacos = new ArrayList<>();
 
+    @ManyToOne
+    private User user;
+
     @NotBlank(message = "Name is required")
     private String name;
 

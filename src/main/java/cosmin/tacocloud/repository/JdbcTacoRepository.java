@@ -10,8 +10,7 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
-import java.sql.Timestamp;
-import java.sql.Types;
+import java.sql.*;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
@@ -19,8 +18,12 @@ import java.util.Map;
 
 import cosmin.tacocloud.domain.Ingredient.Type;
 
-public class JdbcTacoRepository{
-/*
+@Repository
+public class JdbcTacoRepository {
+
+    @Autowired
+    private TacoRepository tacoRepository;
+
     private JdbcTemplate jdbc;
     private Map<String, Ingredient> ingredientMap;
 
@@ -40,7 +43,7 @@ public class JdbcTacoRepository{
         ingredientMap.put("SRCR", new Ingredient("SRCR", "Sour Cream", Type.SAUCE));
     }
 
-    @Override
+
     public Taco save(Taco taco) {
         long tacoId = saveTacoInfo(taco);
         taco.setId(tacoId);
@@ -52,16 +55,25 @@ public class JdbcTacoRepository{
 
     private long saveTacoInfo(Taco taco) {
         taco.setCreatedAt(new Date());
-        PreparedStatementCreator psc =
-                new PreparedStatementCreatorFactory("insert into Taco(name, createdAt) values (?, ?)", Types.VARCHAR, Types.TIMESTAMP)
-                        .newPreparedStatementCreator(Arrays.asList(taco.getName(), new Timestamp(taco.getCreatedAt().getTime())));
+
         KeyHolder keyHolder = new GeneratedKeyHolder();
-        jdbc.update(psc, keyHolder);
+        jdbc.update(new PreparedStatementCreator() {
+
+            @Override
+            public PreparedStatement createPreparedStatement(Connection connection)
+                    throws SQLException {
+                PreparedStatement ps = connection.prepareStatement("insert into Taco(name, createdAt) values (?, ?)",
+                        Statement.RETURN_GENERATED_KEYS);
+                ps.setString(1, taco.getName());
+                ps.setTimestamp(2, new Timestamp(taco.getCreatedAt().getTime()));
+                return ps;
+            }
+        }, keyHolder);
 
         return keyHolder.getKey().longValue();
     }
 
     private void saveIngredientToTaco(Ingredient ingredient, long tacoId) {
         jdbc.update("insert into Taco_Ingredients (taco, ingredient) values (?, ?)", tacoId, ingredient.getId());
-    }*/
+    }
 }
