@@ -1,0 +1,19 @@
+{
+  "properties": [
+    {
+      "name": "taco.orders.page-size",
+      "type": "java.lang.String",
+      "description": "Sets the maximum number of orders to display in a list."
+    },
+    {
+      "name": "taco.orders.pageSize",
+      "type": "java.lang.String",
+      "description": "Description for taco.orders.pageSize."
+    },
+    {
+      "name": "jpa.show-sql.properties.hibernate.temp.use_jdbc_metadata_defaults",
+      "type": "java.lang.String",
+      "description": "Description for jpa.show-sql.properties.hibernate.temp.use_jdbc_metadata_defaults."
+    }
+  ]
+}

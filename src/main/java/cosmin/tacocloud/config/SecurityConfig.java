@@ -32,21 +32,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        /*
-        //jdbc security config
-        auth.jdbcAuthentication()
-                .dataSource(dataSource)
-                .usersByUsernameQuery("select username, password, enabled for Users where username=?")
-                .authoritiesByUsernameQuery("select username, authority from UserAuthorities where username=?")
-                .passwordEncoder(new StandardPasswordEncoder("ana"));
-    */
-
-        //ldap security config
-       /* auth
-                .ldapAuthentication()
-                .userSearchFilter("(uid={0})")
-                .groupSearchFilter("member={0}");*/
-
         auth.userDetailsService(userDetailsService)
                 .passwordEncoder(encoder());
     }

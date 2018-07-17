@@ -1,9 +1,33 @@
 spring:
-  datasource:
-    url: jdbc:mysql://localhost/tacocloud
-    username: tacodb
-    password: tacopassword
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
 
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: cosmin
+    password: password
+    driverClassName: org.postgresql.Driver
+
+  properties:
+    hibernate:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+      hbm2ddl:
+        auto: none
+      temp:
+        use_jdbc_metadata_defaults: false
+
+spring.datasource.initialization-mode: always
 taco:
   orders:
     pageSize: 10
+
