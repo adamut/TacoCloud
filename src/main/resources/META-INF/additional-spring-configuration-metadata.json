@@ -14,6 +14,11 @@
       "name": "jpa.show-sql.properties.hibernate.temp.use_jdbc_metadata_defaults",
       "type": "java.lang.String",
       "description": "Description for jpa.show-sql.properties.hibernate.temp.use_jdbc_metadata_defaults."
+    },
+    {
+      "name": "spring.properties.hibernate.dialect",
+      "type": "java.lang.String",
+      "description": "Description for spring.properties.hibernate.dialect."
     }
   ]
 }

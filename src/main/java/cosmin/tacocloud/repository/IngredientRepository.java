@@ -10,5 +10,4 @@ import java.util.List;
 @Repository
 public interface IngredientRepository extends CrudRepository<Ingredient, String> {
 
-
 }
