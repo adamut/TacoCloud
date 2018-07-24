@@ -1,3 +1,4 @@
+/*
 package cosmin.tacocloud.controller;
 
 import cosmin.tacocloud.domain.RegistrationForm;
@@ -15,9 +16,9 @@ public class RegistrationController {
     private UserRepository userRepository;
     private PasswordEncoder passwordEncoder;
 
-    public RegistrationController(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public RegistrationController(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
+        this.passwordEncoder = null;
     }
 
     @GetMapping
@@ -31,3 +32,4 @@ public class RegistrationController {
         return "redirect:/login";
     }
 }
+*/

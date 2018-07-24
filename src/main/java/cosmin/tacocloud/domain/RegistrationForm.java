@@ -1,3 +1,4 @@
+/*
 package cosmin.tacocloud.domain;
 
 import lombok.Data;
@@ -19,3 +20,4 @@ public class RegistrationForm {
     }
 
 }
+*/

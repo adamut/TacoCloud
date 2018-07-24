@@ -3,32 +3,18 @@ spring:
     database: POSTGRESQL
     show-sql: true
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
     database-platform: org.hibernate.dialect.PostgreSQL9Dialect
     properties:
       hibernate:
         jdbc:
           lob:
             non_contextual_creation: true
+
   datasource:
     platform: postgres
     url: jdbc:postgresql://localhost:5432/postgres
     username: cosmin
     password: password
     driverClassName: org.postgresql.Driver
-  properties:
-    hibernate:
-      dialect: org.hibernate.dialect.PostgreSQLDialect
-      hbm2ddl:
-        auto: none
-      temp:
-        use_jdbc_metadata_defaults: false
-  data:
-    rest:
-      base-path: /api
-
-
-taco:
-  orders:
-    pageSize: 10
 

@@ -1,3 +1,4 @@
+/*
 package cosmin.tacocloud.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,10 @@ import org.springframework.security.crypto.password.StandardPasswordEncoder;
 
 import javax.sql.DataSource;
 
-@Configuration
-@EnableWebSecurity
+*/
+/*@Configuration
+@EnableWebSecurity*//*
+
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -39,7 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/design", "/orders")
+                .antMatchers("/design", "/orders", "/new")
                 .hasRole("USER")
                 .antMatchers("/**").access("permitAll")
                 .and()
@@ -51,3 +54,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/");
     }
 }
+*/

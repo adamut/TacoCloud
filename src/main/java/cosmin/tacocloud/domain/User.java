@@ -1,3 +1,4 @@
+/*
 package cosmin.tacocloud.domain;
 
 import lombok.AccessLevel;
@@ -59,3 +60,4 @@ public class User implements UserDetails {
         return true;
     }
 }
+*/

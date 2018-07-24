@@ -1,29 +1,47 @@
 package cosmin.tacocloud.domain;
 
 
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import javax.persistence.*;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Id;
-
-@Data
-@RequiredArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@Table
 @Entity
 public class Ingredient {
 
     @Id
-    private final String id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
+    private Integer id;
 
-    private final String name;
+    private String name;
 
-    @Enumerated(EnumType.STRING)
-    private final Type type;
+
+    private Type type;
+
+    public Ingredient(){}
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
 
     public enum Type {
         WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE
